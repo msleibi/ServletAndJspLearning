@@ -34,8 +34,17 @@ public class AddServlet extends HttpServlet {
 
 		request.setAttribute("result", result);
 		//RequestDispatcher rd = request.getRequestDispatcher("result.jsp");
-		RequestDispatcher rd = request.getRequestDispatcher("sq");
-		rd.forward(request, response);
+		
+		// send the info using RequestDispatcher
+		//RequestDispatcher rd = request.getRequestDispatcher("sq");
+		//rd.forward(request, response);
+		
+		// send the info using sendRedirect
+		
+		
+		
+		
+		
 		
 
 	}
