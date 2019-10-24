@@ -30,10 +30,11 @@ public class AddServlet extends HttpServlet {
 		int firstNum = Integer.parseInt(request.getParameter("num1"));
 		int secondNum = Integer.parseInt(request.getParameter("num2"));
 
-		String result = String.valueOf(firstNum + secondNum);
+		int result = (firstNum + secondNum);
 
 		request.setAttribute("result", result);
-		RequestDispatcher rd = request.getRequestDispatcher("result.jsp");
+		//RequestDispatcher rd = request.getRequestDispatcher("result.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("sq");
 		rd.forward(request, response);
 		
 

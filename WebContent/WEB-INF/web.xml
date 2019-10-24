@@ -12,4 +12,14 @@
         <url-pattern>/add</url-pattern>
     </servlet-mapping>
     
+     <servlet>
+        <servlet-name>Sq</servlet-name>
+        <servlet-class>com.novomind.servletandjsplearning.SqServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>Sq</servlet-name>
+        <url-pattern>/sq</url-pattern>
+    </servlet-mapping>
+    
 </web-app>
