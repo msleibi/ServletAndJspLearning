@@ -39,8 +39,9 @@ public class AddServlet extends HttpServlet {
 		//RequestDispatcher rd = request.getRequestDispatcher("sq");
 		//rd.forward(request, response);
 		
-		// send the info using sendRedirect
 		
+		// send the info using sendRedirect
+		response.sendRedirect("sq?result=" + result);
 		
 		
 		

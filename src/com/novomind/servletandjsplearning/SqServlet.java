@@ -12,13 +12,23 @@ public class SqServlet extends HttpServlet {
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
+		
+		// Request Dispatcher example
+//		int result;
+//		result = (int)request.getAttribute("result");
+//		result = result * result;
+		
+//		PrintWriter out= response.getWriter();
+//		out.println(result);
+		
+		
+		// sendRedirect example
 		int result;
-		result = (int)request.getAttribute("result");
+		result = Integer.parseInt(request.getParameter("result"));
 		result = result * result;
 		
 		PrintWriter out= response.getWriter();
 		out.println(result);
-		
 		
 	}
 
