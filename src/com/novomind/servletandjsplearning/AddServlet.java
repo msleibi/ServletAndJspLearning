@@ -5,9 +5,11 @@ import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class AddServlet extends HttpServlet {
 
@@ -27,22 +29,38 @@ public class AddServlet extends HttpServlet {
 	 */
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		
 		int firstNum = Integer.parseInt(request.getParameter("num1"));
 		int secondNum = Integer.parseInt(request.getParameter("num2"));
 
-		int result = (firstNum + secondNum);
+		int result = firstNum + secondNum;
+		
+		// *** send the info using Cookies and sendRedirect ***
+		
+		Cookie cookie =new Cookie("result",result +"");
+		response.addCookie(cookie);
+				
+		response.sendRedirect("sq");
+		
+		
+		// *** send the info using Sessions and sendRedirect (got Null Pointer Exception) ***
+		
+		//HttpSession session = request.getSession();
+		//session.setMaxInactiveInterval(10*60);
+		//request.getSession(true).setAttribute("result", result);
+		//response.sendRedirect("sq");
 
-		request.setAttribute("result", result);
+		// *** send the info using RequestDispatcher to a Jsp file ***
+		//request.setAttribute("result", result);
 		//RequestDispatcher rd = request.getRequestDispatcher("result.jsp");
 		
-		// send the info using RequestDispatcher
+		// *** send the info using RequestDispatcher to another Servlet ***
 		//RequestDispatcher rd = request.getRequestDispatcher("sq");
 		//rd.forward(request, response);
 		
 		
-		// send the info using sendRedirect
-		response.sendRedirect("sq?result=" + result);
-		
+		// send the info using sendRedirect and getParameter
+		//response.sendRedirect("sq?result=" + result);
 		
 		
 		
